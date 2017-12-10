@@ -23,32 +23,35 @@ namespace Calculator
 
         private void ShowBox_TextChanged(object sender, EventArgs e)
         {
-
+            // textbox to show all the compute
         }
 
         private void InputBox_TextChanged(object sender, EventArgs e)
         {
+            // txtbox to input compute to make
             txtInput = InputBox.Text;
         }
 
         private void FunctionButton_Click(object sender, EventArgs e)
         {
-
+            // apply the choosen function
         }
 
         private void HelpButton_Click(object sender, EventArgs e)
         {
-
+            // method to write HELP message
+            string txtHelp = "HELP";
+            MessageBox.Show(txtHelp);
         }
 
         private void LoadButton_Click(object sender, EventArgs e)
         {
-
+            // find files dll and load it
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-
+            // save txtOutput in a file.txt
         }
 
         private void ComputeButton_Click(object sender, EventArgs e)
@@ -56,7 +59,7 @@ namespace Calculator
             Compute Calcul = new Compute(txtInput);
             this.Calculs.Add(Calcul);
 
-            // Create the text for output in ShowBox
+            // create the text for output in ShowBox
             this.txtOutput = "";
             foreach (Compute Cal in this.Calculs)
             {
@@ -65,13 +68,13 @@ namespace Calculator
                 this.txtOutput += System.Environment.NewLine;
             }
 
-            // Write text in ShowBox
+            // write text in ShowBox
             ShowBox.Text = this.txtOutput;
         }
 
         private void FunctionBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            // show all the different function loaded
         }
     }
 }
