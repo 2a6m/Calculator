@@ -8,16 +8,42 @@ namespace Calculator
 {
     class Compute
     {
-        private string Calcul;
+        public float A;
+        public float B;
+        public string Fct;
 
-        public Compute(string calcul)
+        public Compute(float a, float b, string fct)
         {
-            this.Calcul = calcul;
+            this.A = a;
+            this.B = b;
+            this.Fct = fct;
         }
 
         public override string ToString()
         {
-            return this.Calcul;
+            string txt = string.Format("> {0} {1} {2}", this.A.ToString(), this.Fct, this.B.ToString());
+            txt += Environment.NewLine;
+            txt += string.Format("{0}", this.Calcul());
+            txt += Environment.NewLine;
+            txt += Environment.NewLine;
+            return txt;
         }
+
+        public float Calcul()
+        {
+            float result = 0;
+
+            if (this.Fct == "/")
+                result = this.A / this.B;
+            if (this.Fct == "*")
+                result = this.A * this.B;
+            if (this.Fct == "-")
+                result = this.A - this.B;
+            if (this.Fct == "+")
+                result = this.A + this.B;
+
+            return result;
+        }
+
     }
 }
