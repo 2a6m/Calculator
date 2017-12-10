@@ -17,6 +17,10 @@ namespace Calculator
             InitializeComponent();
         }
 
+        private List<Compute> Calculs = new List<Compute>();
+        private string txtInput;
+        private string txtOutput;
+
         private void ShowBox_TextChanged(object sender, EventArgs e)
         {
 
@@ -24,7 +28,7 @@ namespace Calculator
 
         private void InputBox_TextChanged(object sender, EventArgs e)
         {
-
+            txtInput = InputBox.Text;
         }
 
         private void FunctionButton_Click(object sender, EventArgs e)
@@ -49,7 +53,20 @@ namespace Calculator
 
         private void ComputeButton_Click(object sender, EventArgs e)
         {
+            Compute Calcul = new Compute(txtInput);
+            this.Calculs.Add(Calcul);
 
+            // Create the text for output in ShowBox
+            this.txtOutput = "";
+            foreach (Compute Cal in this.Calculs)
+            {
+                this.txtOutput += Cal.ToString();
+                this.txtOutput += System.Environment.NewLine;
+                this.txtOutput += System.Environment.NewLine;
+            }
+
+            // Write text in ShowBox
+            ShowBox.Text = this.txtOutput;
         }
 
         private void FunctionBox_SelectedIndexChanged(object sender, EventArgs e)
