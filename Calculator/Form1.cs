@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -56,8 +57,7 @@ namespace Calculator
 
         private void ComputeButton_Click(object sender, EventArgs e)
         {
-            Compute Calcul = new Compute(txtInput);
-            this.Calculs.Add(Calcul);
+            this.Analyse(txtInput);
 
             // create the text for output in ShowBox
             this.txtOutput = "";
@@ -75,6 +75,32 @@ namespace Calculator
         private void FunctionBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             // show all the different function loaded
+        }
+
+        private void Analyse(string s)
+        {
+            Regex rg = new Regex(@"^\s*(?<int1>([+-]?\d+)|([+-]?\d+[.,]{1}[+-]?\d+))\s*(?<operator>[/*+-]{1})\s*(?<int2>([+-]?\d+)|([+-]?\d+[.,]{1}[+-]?\d+))\s*$");
+            Match m = rg.Match(s);
+
+            if (m.Success)
+            {
+                float int1 = float.Parse(m.Groups["int1"].Value);
+                float int2 = float.Parse(m.Groups["int2"].Value);
+
+                Compute Cal = new Compute(int1, int2, m.Groups["operator"].Value);
+
+                this.Calculs.Add(Cal);
+            }
+            else
+            {
+                MessageBox.Show("[ERROR]: Calcul mal écrit.");
+            }
+        }
+
+        private void Save_Click(object sender, EventArgs e)
+        {
+            string Path = (@"Calculate.txt");
+            System.IO.File.WriteAllText(Path, this.txtOutput);
         }
     }
 }
