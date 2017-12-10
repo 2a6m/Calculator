@@ -16,5 +16,45 @@ namespace Calculator
         {
             InitializeComponent();
         }
+
+        private void ShowBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void InputBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FunctionButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void HelpButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LoadButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ComputeButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FunctionBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
