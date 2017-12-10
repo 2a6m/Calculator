@@ -19,8 +19,8 @@ namespace Calculator
         }
 
         private List<Compute> Calculs = new List<Compute>();
-        private string txtInput;
-        private string txtOutput;
+        private string txtInput = "";
+        private string txtOutput = "";
 
         private void ShowBox_TextChanged(object sender, EventArgs e)
         {
@@ -42,7 +42,7 @@ namespace Calculator
         {
             // method to write HELP message
             string txtHelp = "HELP";
-            MessageBox.Show(txtHelp);
+            MessageBox.Show(txtHelp, "Help", MessageBoxButtons.OK);
         }
 
         private void LoadButton_Click(object sender, EventArgs e)
@@ -53,19 +53,24 @@ namespace Calculator
         private void SaveButton_Click(object sender, EventArgs e)
         {
             // save txtOutput in a file.txt
+            string Path = (@"Calculate.txt");
+            System.IO.File.WriteAllText(Path, this.txtOutput);
+
+            MessageBox.Show("Saved Successfully", "Save", MessageBoxButtons.OK);
         }
 
         private void ComputeButton_Click(object sender, EventArgs e)
         {
-            this.Analyse(txtInput);
+            if (txtInput.Length > 0)
+            {
+                this.Analyse(txtInput);
+            }
 
             // create the text for output in ShowBox
             this.txtOutput = "";
             foreach (Compute Cal in this.Calculs)
             {
                 this.txtOutput += Cal.ToString();
-                this.txtOutput += System.Environment.NewLine;
-                this.txtOutput += System.Environment.NewLine;
             }
 
             // write text in ShowBox
