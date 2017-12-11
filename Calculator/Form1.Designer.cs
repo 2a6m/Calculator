@@ -51,29 +51,33 @@
             this.tableLayoutPanel1.Controls.Add(this.InputBox, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.FunctionBox, 1, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 95.31503F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.684976F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(709, 619);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(733, 643);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // ShowBox
             // 
+            this.ShowBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ShowBox.Location = new System.Drawing.Point(3, 3);
             this.ShowBox.Multiline = true;
             this.ShowBox.Name = "ShowBox";
             this.ShowBox.ReadOnly = true;
-            this.ShowBox.Size = new System.Drawing.Size(490, 584);
+            this.ShowBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.ShowBox.Size = new System.Drawing.Size(507, 606);
             this.ShowBox.TabIndex = 0;
             this.ShowBox.TextChanged += new System.EventHandler(this.ShowBox_TextChanged);
             // 
             // InputBox
             // 
-            this.InputBox.Location = new System.Drawing.Point(3, 593);
+            this.InputBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.InputBox.Location = new System.Drawing.Point(3, 615);
             this.InputBox.Name = "InputBox";
-            this.InputBox.Size = new System.Drawing.Size(490, 22);
+            this.InputBox.Size = new System.Drawing.Size(507, 22);
             this.InputBox.TabIndex = 1;
             this.InputBox.TextChanged += new System.EventHandler(this.InputBox_TextChanged);
             // 
@@ -87,7 +91,8 @@
             this.tableLayoutPanel2.Controls.Add(this.LoadButton, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.HelpButton, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.FunctionButton, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(499, 3);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(516, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 5;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -95,14 +100,15 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(207, 584);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(214, 606);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // ComputeButton
             // 
-            this.ComputeButton.Location = new System.Drawing.Point(3, 467);
+            this.ComputeButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ComputeButton.Location = new System.Drawing.Point(3, 487);
             this.ComputeButton.Name = "ComputeButton";
-            this.ComputeButton.Size = new System.Drawing.Size(201, 110);
+            this.ComputeButton.Size = new System.Drawing.Size(208, 116);
             this.ComputeButton.TabIndex = 4;
             this.ComputeButton.Text = "Compute";
             this.ComputeButton.UseVisualStyleBackColor = true;
@@ -110,9 +116,10 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(3, 351);
+            this.SaveButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SaveButton.Location = new System.Drawing.Point(3, 366);
             this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(201, 110);
+            this.SaveButton.Size = new System.Drawing.Size(208, 115);
             this.SaveButton.TabIndex = 3;
             this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = true;
@@ -120,9 +127,10 @@
             // 
             // LoadButton
             // 
-            this.LoadButton.Location = new System.Drawing.Point(3, 235);
+            this.LoadButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LoadButton.Location = new System.Drawing.Point(3, 245);
             this.LoadButton.Name = "LoadButton";
-            this.LoadButton.Size = new System.Drawing.Size(201, 110);
+            this.LoadButton.Size = new System.Drawing.Size(208, 115);
             this.LoadButton.TabIndex = 2;
             this.LoadButton.Text = "Load";
             this.LoadButton.UseVisualStyleBackColor = true;
@@ -130,9 +138,10 @@
             // 
             // HelpButton
             // 
-            this.HelpButton.Location = new System.Drawing.Point(3, 119);
+            this.HelpButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.HelpButton.Location = new System.Drawing.Point(3, 124);
             this.HelpButton.Name = "HelpButton";
-            this.HelpButton.Size = new System.Drawing.Size(201, 110);
+            this.HelpButton.Size = new System.Drawing.Size(208, 115);
             this.HelpButton.TabIndex = 1;
             this.HelpButton.Text = "Help";
             this.HelpButton.UseVisualStyleBackColor = true;
@@ -140,9 +149,10 @@
             // 
             // FunctionButton
             // 
+            this.FunctionButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FunctionButton.Location = new System.Drawing.Point(3, 3);
             this.FunctionButton.Name = "FunctionButton";
-            this.FunctionButton.Size = new System.Drawing.Size(201, 110);
+            this.FunctionButton.Size = new System.Drawing.Size(208, 115);
             this.FunctionButton.TabIndex = 0;
             this.FunctionButton.Text = "Function";
             this.FunctionButton.UseVisualStyleBackColor = true;
@@ -150,10 +160,11 @@
             // 
             // FunctionBox
             // 
+            this.FunctionBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FunctionBox.FormattingEnabled = true;
-            this.FunctionBox.Location = new System.Drawing.Point(499, 593);
+            this.FunctionBox.Location = new System.Drawing.Point(516, 615);
             this.FunctionBox.Name = "FunctionBox";
-            this.FunctionBox.Size = new System.Drawing.Size(207, 24);
+            this.FunctionBox.Size = new System.Drawing.Size(214, 24);
             this.FunctionBox.TabIndex = 3;
             this.FunctionBox.SelectedIndexChanged += new System.EventHandler(this.FunctionBox_SelectedIndexChanged);
             // 
