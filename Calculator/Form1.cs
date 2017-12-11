@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -21,6 +22,7 @@ namespace Calculator
         private List<Compute> Calculs = new List<Compute>();
         private string txtInput = "";
         private string txtOutput = "";
+        private List<Object> Functions = new List<Object>(); // liste contenant les dll 
 
         private void ShowBox_TextChanged(object sender, EventArgs e)
         {
@@ -48,6 +50,18 @@ namespace Calculator
         private void LoadButton_Click(object sender, EventArgs e)
         {
             // find files dll and load it
+
+            OpenFileDialog LoadFileDialog = new OpenFileDialog();
+
+            string path = Directory.GetCurrentDirectory();
+            LoadFileDialog.InitialDirectory = path;
+            LoadFileDialog.Filter = "dll files (*.dll)|*.dll";
+
+            if (LoadFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                Stream File = LoadFileDialog.OpenFile();
+                this.Functions.Add(File);
+            }
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
@@ -56,7 +70,7 @@ namespace Calculator
             string Path = (@"Calculate.txt");
             System.IO.File.WriteAllText(Path, this.txtOutput);
 
-            MessageBox.Show("Saved Successfully", "Save", MessageBoxButtons.OK);
+            MessageBox.Show("Successfully Saved", "Save", MessageBoxButtons.OK);
         }
 
         private void ComputeButton_Click(object sender, EventArgs e)
@@ -98,7 +112,7 @@ namespace Calculator
             }
             else
             {
-                MessageBox.Show("[ERROR]: Calcul mal écrit.");
+                MessageBox.Show("Calcul mal écrit.","ERROR");
             }
         }
 
