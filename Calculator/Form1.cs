@@ -56,7 +56,7 @@ namespace Calculator
             string Path = (@"Calculate.txt");
             System.IO.File.WriteAllText(Path, this.txtOutput);
 
-            MessageBox.Show("Saved Successfully", "Save", MessageBoxButtons.OK);
+            MessageBox.Show("Successfully Saved", "Save", MessageBoxButtons.OK);
         }
 
         private void ComputeButton_Click(object sender, EventArgs e)
@@ -98,7 +98,7 @@ namespace Calculator
             }
             else
             {
-                MessageBox.Show("[ERROR]: Calcul mal écrit.");
+                MessageBox.Show("Calcul mal écrit.","ERROR");
             }
         }
 

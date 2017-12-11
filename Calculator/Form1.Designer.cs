@@ -32,11 +32,11 @@
             this.ShowBox = new System.Windows.Forms.TextBox();
             this.InputBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.FunctionButton = new System.Windows.Forms.Button();
-            this.HelpButton = new System.Windows.Forms.Button();
-            this.LoadButton = new System.Windows.Forms.Button();
-            this.SaveButton = new System.Windows.Forms.Button();
             this.ComputeButton = new System.Windows.Forms.Button();
+            this.SaveButton = new System.Windows.Forms.Button();
+            this.LoadButton = new System.Windows.Forms.Button();
+            this.HelpButton = new System.Windows.Forms.Button();
+            this.FunctionButton = new System.Windows.Forms.Button();
             this.FunctionBox = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -98,35 +98,15 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(207, 584);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
-            // FunctionButton
+            // ComputeButton
             // 
-            this.FunctionButton.Location = new System.Drawing.Point(3, 3);
-            this.FunctionButton.Name = "FunctionButton";
-            this.FunctionButton.Size = new System.Drawing.Size(201, 110);
-            this.FunctionButton.TabIndex = 0;
-            this.FunctionButton.Text = "Function";
-            this.FunctionButton.UseVisualStyleBackColor = true;
-            this.FunctionButton.Click += new System.EventHandler(this.FunctionButton_Click);
-            // 
-            // HelpButton
-            // 
-            this.HelpButton.Location = new System.Drawing.Point(3, 119);
-            this.HelpButton.Name = "HelpButton";
-            this.HelpButton.Size = new System.Drawing.Size(201, 110);
-            this.HelpButton.TabIndex = 1;
-            this.HelpButton.Text = "Help";
-            this.HelpButton.UseVisualStyleBackColor = true;
-            this.HelpButton.Click += new System.EventHandler(this.HelpButton_Click);
-            // 
-            // LoadButton
-            // 
-            this.LoadButton.Location = new System.Drawing.Point(3, 235);
-            this.LoadButton.Name = "LoadButton";
-            this.LoadButton.Size = new System.Drawing.Size(201, 110);
-            this.LoadButton.TabIndex = 2;
-            this.LoadButton.Text = "Load";
-            this.LoadButton.UseVisualStyleBackColor = true;
-            this.LoadButton.Click += new System.EventHandler(this.LoadButton_Click);
+            this.ComputeButton.Location = new System.Drawing.Point(3, 467);
+            this.ComputeButton.Name = "ComputeButton";
+            this.ComputeButton.Size = new System.Drawing.Size(201, 110);
+            this.ComputeButton.TabIndex = 4;
+            this.ComputeButton.Text = "Compute";
+            this.ComputeButton.UseVisualStyleBackColor = true;
+            this.ComputeButton.Click += new System.EventHandler(this.ComputeButton_Click);
             // 
             // SaveButton
             // 
@@ -138,15 +118,35 @@
             this.SaveButton.UseVisualStyleBackColor = true;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
-            // ComputeButton
+            // LoadButton
             // 
-            this.ComputeButton.Location = new System.Drawing.Point(3, 467);
-            this.ComputeButton.Name = "ComputeButton";
-            this.ComputeButton.Size = new System.Drawing.Size(201, 110);
-            this.ComputeButton.TabIndex = 4;
-            this.ComputeButton.Text = "Compute";
-            this.ComputeButton.UseVisualStyleBackColor = true;
-            this.ComputeButton.Click += new System.EventHandler(this.ComputeButton_Click);
+            this.LoadButton.Location = new System.Drawing.Point(3, 235);
+            this.LoadButton.Name = "LoadButton";
+            this.LoadButton.Size = new System.Drawing.Size(201, 110);
+            this.LoadButton.TabIndex = 2;
+            this.LoadButton.Text = "Load";
+            this.LoadButton.UseVisualStyleBackColor = true;
+            this.LoadButton.Click += new System.EventHandler(this.LoadButton_Click);
+            // 
+            // HelpButton
+            // 
+            this.HelpButton.Location = new System.Drawing.Point(3, 119);
+            this.HelpButton.Name = "HelpButton";
+            this.HelpButton.Size = new System.Drawing.Size(201, 110);
+            this.HelpButton.TabIndex = 1;
+            this.HelpButton.Text = "Help";
+            this.HelpButton.UseVisualStyleBackColor = true;
+            this.HelpButton.Click += new System.EventHandler(this.HelpButton_Click);
+            // 
+            // FunctionButton
+            // 
+            this.FunctionButton.Location = new System.Drawing.Point(3, 3);
+            this.FunctionButton.Name = "FunctionButton";
+            this.FunctionButton.Size = new System.Drawing.Size(201, 110);
+            this.FunctionButton.TabIndex = 0;
+            this.FunctionButton.Text = "Function";
+            this.FunctionButton.UseVisualStyleBackColor = true;
+            this.FunctionButton.Click += new System.EventHandler(this.FunctionButton_Click);
             // 
             // FunctionBox
             // 
