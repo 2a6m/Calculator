@@ -8,3 +8,14 @@ C:\Users\maxime\source\repos\Calculator\Calculator\obj\Debug\Calculator.csproj.G
 C:\Users\maxime\source\repos\Calculator\Calculator\obj\Debug\Calculator.csproj.CoreCompileInputs.cache
 C:\Users\maxime\source\repos\Calculator\Calculator\obj\Debug\Calculator.exe
 C:\Users\maxime\source\repos\Calculator\Calculator\obj\Debug\Calculator.pdb
+C:\Users\Arnaud\Source\Repos\Calculator\Calculator\bin\Debug\Calculator.exe.config
+C:\Users\Arnaud\Source\Repos\Calculator\Calculator\bin\Debug\Calculator.exe
+C:\Users\Arnaud\Source\Repos\Calculator\Calculator\bin\Debug\Calculator.pdb
+C:\Users\Arnaud\Source\Repos\Calculator\Calculator\bin\Debug\SuperComputer.dll
+C:\Users\Arnaud\Source\Repos\Calculator\Calculator\obj\Debug\Calculator.csprojResolveAssemblyReference.cache
+C:\Users\Arnaud\Source\Repos\Calculator\Calculator\obj\Debug\Calculator.Form1.resources
+C:\Users\Arnaud\Source\Repos\Calculator\Calculator\obj\Debug\Calculator.Properties.Resources.resources
+C:\Users\Arnaud\Source\Repos\Calculator\Calculator\obj\Debug\Calculator.csproj.GenerateResource.Cache
+C:\Users\Arnaud\Source\Repos\Calculator\Calculator\obj\Debug\Calculator.csproj.CoreCompileInputs.cache
+C:\Users\Arnaud\Source\Repos\Calculator\Calculator\obj\Debug\Calculator.exe
+C:\Users\Arnaud\Source\Repos\Calculator\Calculator\obj\Debug\Calculator.pdb

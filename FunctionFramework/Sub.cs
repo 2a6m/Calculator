@@ -21,7 +21,7 @@ namespace FunctionFramework
         {
             get
             {
-                return "Sdd";
+                return "Sub";
             }
         }
 

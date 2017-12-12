@@ -53,7 +53,7 @@
             this.tableLayoutPanel1.Controls.Add(this.FunctionBox, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 95.31503F));
@@ -65,7 +65,7 @@
             // 
             this.ShowBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ShowBox.Location = new System.Drawing.Point(2, 2);
-            this.ShowBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ShowBox.Margin = new System.Windows.Forms.Padding(2);
             this.ShowBox.Multiline = true;
             this.ShowBox.Name = "ShowBox";
             this.ShowBox.ReadOnly = true;
@@ -78,7 +78,7 @@
             // 
             this.InputBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.InputBox.Location = new System.Drawing.Point(2, 499);
-            this.InputBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.InputBox.Margin = new System.Windows.Forms.Padding(2);
             this.InputBox.Name = "InputBox";
             this.InputBox.Size = new System.Drawing.Size(381, 20);
             this.InputBox.TabIndex = 1;
@@ -96,7 +96,7 @@
             this.tableLayoutPanel2.Controls.Add(this.FunctionButton, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(387, 2);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 5;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -111,7 +111,7 @@
             // 
             this.ComputeButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ComputeButton.Location = new System.Drawing.Point(2, 394);
-            this.ComputeButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ComputeButton.Margin = new System.Windows.Forms.Padding(2);
             this.ComputeButton.Name = "ComputeButton";
             this.ComputeButton.Size = new System.Drawing.Size(157, 97);
             this.ComputeButton.TabIndex = 4;
@@ -123,7 +123,7 @@
             // 
             this.SaveButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SaveButton.Location = new System.Drawing.Point(2, 296);
-            this.SaveButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SaveButton.Margin = new System.Windows.Forms.Padding(2);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(157, 94);
             this.SaveButton.TabIndex = 3;
@@ -135,7 +135,7 @@
             // 
             this.LoadButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LoadButton.Location = new System.Drawing.Point(2, 198);
-            this.LoadButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LoadButton.Margin = new System.Windows.Forms.Padding(2);
             this.LoadButton.Name = "LoadButton";
             this.LoadButton.Size = new System.Drawing.Size(157, 94);
             this.LoadButton.TabIndex = 2;
@@ -147,7 +147,7 @@
             // 
             this.HelpButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.HelpButton.Location = new System.Drawing.Point(2, 100);
-            this.HelpButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.HelpButton.Margin = new System.Windows.Forms.Padding(2);
             this.HelpButton.Name = "HelpButton";
             this.HelpButton.Size = new System.Drawing.Size(157, 94);
             this.HelpButton.TabIndex = 1;
@@ -159,7 +159,7 @@
             // 
             this.FunctionButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FunctionButton.Location = new System.Drawing.Point(2, 2);
-            this.FunctionButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FunctionButton.Margin = new System.Windows.Forms.Padding(2);
             this.FunctionButton.Name = "FunctionButton";
             this.FunctionButton.Size = new System.Drawing.Size(157, 94);
             this.FunctionButton.TabIndex = 0;
@@ -172,7 +172,7 @@
             this.FunctionBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FunctionBox.FormattingEnabled = true;
             this.FunctionBox.Location = new System.Drawing.Point(387, 499);
-            this.FunctionBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FunctionBox.Margin = new System.Windows.Forms.Padding(2);
             this.FunctionBox.Name = "FunctionBox";
             this.FunctionBox.Size = new System.Drawing.Size(161, 21);
             this.FunctionBox.TabIndex = 3;
@@ -184,7 +184,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(550, 522);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.tableLayoutPanel1.ResumeLayout(false);
