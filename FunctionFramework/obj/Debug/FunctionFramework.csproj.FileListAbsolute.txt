@@ -1,0 +1,2 @@
+C:\Users\Arnaud\Source\Repos\Calculator\FunctionFramework\obj\Debug\FunctionFramework.csprojResolveAssemblyReference.cache
+C:\Users\Arnaud\Source\Repos\Calculator\FunctionFramework\obj\Debug\FunctionFramework.csproj.CoreCompileInputs.cache
