@@ -11,11 +11,18 @@ namespace Calculator
 {
     public class FunctionManager
     {
-        private List<IFunction> FunctionList = new List<IFunction>();
+
+    //Attributes
+
         private List<string> pathList = new List<string>();
+        public List<IFunction> FunctionList { get; private set; }
+
+
+    //Constructor
 
         public FunctionManager()
         {
+            this.FunctionList = new List<IFunction>();
             string pathtest = Directory.GetCurrentDirectory() + "/FunctionFramework.dll";
             Console.WriteLine(pathtest);
             this.AddPath(pathtest);
@@ -33,7 +40,19 @@ namespace Calculator
             
         }
 
-        void LoadFunctions(string path)
+
+    // Getter - Setter - and other attribute managing functions
+
+        private void AddFunction(IFunction fct)
+        {
+            List<IFunction> functionlist = this.FunctionList;
+            functionlist.Add(fct);
+            this.FunctionList = functionlist;
+        }
+
+    // Other Methods
+
+        private void LoadFunctions(string path)
         {
             //Load functions from a DLL specified with the path
             Assembly dll = Assembly.LoadFile(path);
@@ -43,12 +62,12 @@ namespace Calculator
                 Function<string> fct = (Function<string>)Activator.CreateInstance(type);
                 string name = (string)type.InvokeMember("get_Name", BindingFlags.InvokeMethod, null, fct, null);
                 Console.WriteLine("name = " + name);
-                this.FunctionList.Add(fct);                
+                this.AddFunction(fct);                
                 
             }
         }
 
-        public void AddPath(string path)
+        private void AddPath(string path)
         {
             //add a path to the path list of all existing DLL containing functions
             bool ans = true;
@@ -68,6 +87,9 @@ namespace Calculator
             this.pathList.Add(path);
         }
     }
+
+
+    //Exceptions 
 
     public class FunctionManagerException : Exception
     {
