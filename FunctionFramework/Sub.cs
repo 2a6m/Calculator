@@ -30,8 +30,8 @@ namespace FunctionFramework
             get
             {
                 string[] param = new string[2];
-                param.SetValue("double A", 0);
-                param.SetValue("double B", 1);
+                param.SetValue("a", 0);
+                param.SetValue("b", 1);
                 return param;
             }
         }

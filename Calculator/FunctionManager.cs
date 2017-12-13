@@ -52,6 +52,12 @@ namespace Calculator
 
     // Other Methods
 
+        public void LoadDLL(string path)
+        {
+            this.AddPath(path);
+            this.LoadFunctions(path);
+        }
+
         private void LoadFunctions(string path)
         {
             //Load functions from a DLL specified with the path
