@@ -29,16 +29,17 @@ namespace Calculator
         private string txtOutput = "";
         private List<Object> Functions = new List<Object>(); // liste contenant les dll 
 
+        
+    // Output
+
         private void ShowBox_TextChanged(object sender, EventArgs e)
         {
             // textbox to show all the compute
-        }
+        }   
 
-        private void InputBox_TextChanged(object sender, EventArgs e)
-        {
-            // txtbox to input compute to make
-            txtInput = InputBox.Text;
-        }
+
+    // Buttons
+
 
         private void FunctionButton_Click(object sender, EventArgs e)
         {
@@ -96,6 +97,15 @@ namespace Calculator
             ShowBox.Text = this.txtOutput;
         }
 
+    // Input
+
+        //InputBox
+
+        private void InputBox_TextChanged(object sender, EventArgs e)
+        {
+            // txtbox to input compute to make
+            txtInput = InputBox.Text;
+        }
 
         // FunctionBox
 
@@ -117,7 +127,7 @@ namespace Calculator
             
         }
 
-        //
+    // Computing 
 
         private void Analyse(string s)
         {
@@ -141,6 +151,7 @@ namespace Calculator
 
         private void Save_Click(object sender, EventArgs e)
         {
+            //
             string Path = (@"Calculate.txt");
             System.IO.File.WriteAllText(Path, this.txtOutput);
         }
