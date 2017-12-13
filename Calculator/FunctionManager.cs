@@ -81,9 +81,9 @@ namespace Calculator
             Type[] types = dll.GetExportedTypes();
             foreach (Type type in types)
             {
-                Function<string> fct = (Function<string>)Activator.CreateInstance(type);
+                IFunction fct = (IFunction)Activator.CreateInstance(type);
                 string name = (string)type.InvokeMember("get_Name", BindingFlags.InvokeMethod, null, fct, null);
-                Console.WriteLine("fct = " + fct.ToString());
+                Console.WriteLine("fct est de type = " + fct.GetType());
                 this.AddFunction(fct);                
                 
             }
