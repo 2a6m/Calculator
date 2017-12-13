@@ -7,7 +7,7 @@ using SuperComputer;
 
 namespace FunctionFramework
 {
-    class BaseConverter : Function<int>
+    public class BaseConverter : Function<int>
     {
         public string HelpMessage
         {
@@ -50,7 +50,7 @@ namespace FunctionFramework
             }
         }
 
-        private static string convert(int a, int b)
+        private string convert(int a, int b)
         {
             //Recursively convert an integer 'a' in base 'b'
             int remainder = a % b;

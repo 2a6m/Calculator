@@ -23,8 +23,8 @@ namespace Calculator
         public FunctionManager()
         {
             this.FunctionList = new List<IFunction>();
-            string pathtest = Directory.GetCurrentDirectory() + "/FunctionFramework.dll";
-            Console.WriteLine(pathtest);
+            string pathtest = Directory.GetCurrentDirectory() + @"\FunctionFramework.dll";
+            Console.WriteLine("Origin path=" + pathtest);
             this.AddPath(pathtest);
             foreach(string path in this.pathList)
             {
