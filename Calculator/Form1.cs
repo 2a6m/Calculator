@@ -9,17 +9,19 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SuperComputer;
 
 namespace Calculator
 {
     public partial class Form1 : Form
     {
-        FunctionManager functionmanager;
+        private FunctionManager functionmanager;
 
         public Form1()
         {
             this.functionmanager = new FunctionManager();
             InitializeComponent();
+            this.UpdateFromFunctionManager();
         }
 
         private List<Compute> Calculs = new List<Compute>();
@@ -52,7 +54,7 @@ namespace Calculator
 
         private void LoadButton_Click(object sender, EventArgs e)
         {
-            // find files dll and load it
+            // find DLL files and load them
 
             OpenFileDialog LoadFileDialog = new OpenFileDialog();
 
@@ -94,10 +96,28 @@ namespace Calculator
             ShowBox.Text = this.txtOutput;
         }
 
+
+        // FunctionBox
+
         private void FunctionBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // show all the different function loaded
+            // When selecting a function in the combo box, it writes it in the input command
+            InputBox.Text = FunctionBox.Text;
         }
+
+        private void UpdateFromFunctionManager()
+        {
+            //Create a item in the FunctionBox for every function FunctionManager has
+            FunctionBox.Items.Clear();
+            foreach(IFunction fct in this.functionmanager.FunctionList)
+            {
+                string s = fct.Name;
+                FunctionBox.Items.Add(s);
+            }
+            
+        }
+
+        //
 
         private void Analyse(string s)
         {
@@ -124,5 +144,7 @@ namespace Calculator
             string Path = (@"Calculate.txt");
             System.IO.File.WriteAllText(Path, this.txtOutput);
         }
+
+        // 
     }
 }
