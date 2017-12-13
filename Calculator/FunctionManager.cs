@@ -49,6 +49,22 @@ namespace Calculator
             functionlist.Add(fct);
             this.FunctionList = functionlist;
         }
+    
+        public List<IFunction> SearchFunction(string name)
+        {
+            //Return a list of IFunctions whose name equals the given 'name' parameter;
+
+            List<IFunction> fctlist = new List<IFunction>();
+            foreach(IFunction foo in this.FunctionList)
+            {
+                if(foo.Name.Equals(name))
+                {
+                    fctlist.Add(foo);
+                }
+            }
+            return fctlist;
+        }
+
 
     // Other Methods
 
@@ -67,7 +83,7 @@ namespace Calculator
             {
                 Function<string> fct = (Function<string>)Activator.CreateInstance(type);
                 string name = (string)type.InvokeMember("get_Name", BindingFlags.InvokeMethod, null, fct, null);
-                Console.WriteLine("name = " + name);
+                Console.WriteLine("fct = " + fct.ToString());
                 this.AddFunction(fct);                
                 
             }
