@@ -35,15 +35,25 @@ namespace Calculator
         private void ShowBox_TextChanged(object sender, EventArgs e)
         {
             // textbox to show all the compute
-        }   
+        }
 
 
-    // Buttons
+        // Buttons
 
 
         private void FunctionButton_Click(object sender, EventArgs e)
         {
-            // apply the choosen function
+            string txt = "";
+            // find the function with this name
+            foreach (IFunction fct in this.functionmanager.FunctionList)
+            {
+
+                if (fct.Name == FunctionBox.Text)
+                {
+                    txt += String.Format("{0}({1})", FunctionBox.Text, string.Join(";", fct.ParametersName));
+                }
+            }
+            InputBox.Text = txt;
         }
 
         private void HelpButton_Click(object sender, EventArgs e)
@@ -112,7 +122,6 @@ namespace Calculator
         private void FunctionBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             // When selecting a function in the combo box, it writes it in the input command
-            InputBox.Text = FunctionBox.Text;
         }
 
         private void UpdateFromFunctionManager()
@@ -127,35 +136,71 @@ namespace Calculator
             
         }
 
-    // Computing 
+        // Computing 
 
-        private void Analyse(string s)
+        private List<string> Cut(string s, Regex rg)
         {
-            Regex rg = new Regex(@"^\s*(?<int1>([+-]?\d+)|([+-]?\d+[.,]{1}[+-]?\d+))\s*(?<operator>[/*+-]{1})\s*(?<int2>([+-]?\d+)|([+-]?\d+[.,]{1}[+-]?\d+))\s*$");
+            List<string> args0 = new List<string>();
             Match m = rg.Match(s);
 
             if (m.Success)
             {
-                float int1 = float.Parse(m.Groups["int1"].Value);
-                float int2 = float.Parse(m.Groups["int2"].Value);
-
-                Compute Cal = new Compute(int1, int2, m.Groups["operator"].Value);
-
-                this.Calculs.Add(Cal);
+                string fctname = m.Groups["fct"].Value;
+                string[] args = m.Groups["args"].Value.Split(new char[] { ';' }, 2);
+                Console.WriteLine(fctname);
+                if (args.Length == 2)
+                    foreach (string arg in args)
+                    {
+                        args0.AddRange(Cut(arg, rg));
+                    }
+                else
+                {
+                    args0.Add(args[0]);
+                    Console.WriteLine(args[0]);
+                }
             }
             else
             {
-                MessageBox.Show("Calcul mal écrit.","ERROR");
+                string[] args = s.Split(new char[] { ';' }, 2);
+                if (args.Length == 2)
+                    foreach (string arg in args)
+                    {
+                        args0.AddRange(Cut(arg, rg));
+                    }
+                else
+                {
+                    Console.WriteLine(args[0]);
+                    args0.Add(args[0]);
+                }
+            }
+
+            return args0;
+        }
+
+        private void Analyse(string s)
+        {
+            List<string> nfct = new List<String>();
+            foreach (IFunction fct in this.functionmanager.FunctionList)
+            {
+                nfct.Add(fct.Name);
+            }
+            string fcttxt = string.Join("|", nfct.ToArray());
+
+
+            string rgstr = string.Format(@"^(?<fct>({0}))\((?<args>.*)\)$", fcttxt);
+            Regex rg = new Regex(rgstr);
+
+            Match m = rg.Match(s);
+
+            if (m.Success)
+            {
+                string fctname = m.Groups["fct"].Value;
+                Console.WriteLine(fctname);
+                // we compute here
+                string[] args = this.Cut(m.Groups["args"].Value, rg).ToArray();
+                // fct.compute(args)
             }
         }
-
-        private void Save_Click(object sender, EventArgs e)
-        {
-            //
-            string Path = (@"Calculate.txt");
-            System.IO.File.WriteAllText(Path, this.txtOutput);
-        }
-
         // 
     }
 }
