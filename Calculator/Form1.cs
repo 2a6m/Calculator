@@ -45,14 +45,7 @@ namespace Calculator
         {
             string txt = "";
             // find the function with this name
-            foreach (IFunction fct in this.functionmanager.FunctionList)
-            {
-
-                if (fct.Name == FunctionBox.Text)
-                {
-                    txt += String.Format("{0}({1})", FunctionBox.Text, string.Join(";", fct.ParametersName));
-                }
-            }
+            txt += String.Format("{0}({1})", FunctionBox.Text, string.Join(";", this.functionmanager.SearchFunction(FunctionBox.Text)[0].ParametersName));
             InputBox.Text = txt;
         }
 
@@ -199,6 +192,13 @@ namespace Calculator
                 // we compute here
                 string[] args = this.Cut(m.Groups["args"].Value, rg).ToArray();
                 // fct.compute(args)
+                /*
+                IFunction function = this.functionmanager.SearchFunction(fctname)[0];
+                Function<object> testfct = (Function<object>)function;
+
+                string ans = testfct.Evaluate(args).ToString();
+                ShowBox.Text = ans;
+                */
             }
         }
         // 
