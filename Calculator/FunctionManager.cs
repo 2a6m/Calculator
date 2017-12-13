@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Reflection;
 using SuperComputer;
 using System.IO;
+using static SuperComputer.Function<string>;
 
 namespace Calculator
 {
@@ -15,14 +16,14 @@ namespace Calculator
     //Attributes
 
         private List<string> pathList = new List<string>();
-        public List<IFunction> FunctionList { get; private set; }
+        public List<Function<string>> FunctionList { get; private set; }
 
 
     //Constructor
 
         public FunctionManager()
         {
-            this.FunctionList = new List<IFunction>();
+            this.FunctionList = new List<Function<string>>();
             string pathtest = Directory.GetCurrentDirectory() + "/FunctionFramework.dll";
             Console.WriteLine(pathtest);
             this.AddPath(pathtest);
@@ -43,19 +44,19 @@ namespace Calculator
 
     // Getter - Setter - and other attribute managing functions
 
-        private void AddFunction(IFunction fct)
+        private void AddFunction(Function<string> fct)
         {
-            List<IFunction> functionlist = this.FunctionList;
+            List<Function<string>> functionlist = this.FunctionList;
             functionlist.Add(fct);
             this.FunctionList = functionlist;
         }
     
-        public List<IFunction> SearchFunction(string name)
+        public List<Function<string>> SearchFunction(string name)
         {
             //Return a list of IFunctions whose name equals the given 'name' parameter;
 
-            List<IFunction> fctlist = new List<IFunction>();
-            foreach(IFunction foo in this.FunctionList)
+            List<Function<string>> fctlist = new List<Function<string>>();
+            foreach(Function<string> foo in this.FunctionList)
             {
                 if(foo.Name.Equals(name))
                 {

@@ -24,7 +24,7 @@ namespace Calculator
             this.UpdateFromFunctionManager();
         }
 
-        private List<Compute> Calculs = new List<Compute>();
+        private List<string> Calculs = new List<string>();
         private string txtInput = "";
         private string txtOutput = "";
         private List<Object> Functions = new List<Object>(); // liste contenant les dll 
@@ -91,7 +91,7 @@ namespace Calculator
 
             // create the text for output in ShowBox
             this.txtOutput = "";
-            foreach (Compute Cal in this.Calculs)
+            foreach (string Cal in this.Calculs)
             {
                 this.txtOutput += Cal.ToString();
             }
@@ -151,6 +151,7 @@ namespace Calculator
                     args0.Add(args[0]);
                     Console.WriteLine(args[0]);
                 }
+
             }
             else
             {
@@ -192,13 +193,16 @@ namespace Calculator
                 // we compute here
                 string[] args = this.Cut(m.Groups["args"].Value, rg).ToArray();
                 // fct.compute(args)
-                /*
-                IFunction function = this.functionmanager.SearchFunction(fctname)[0];
-                Function<object> testfct = (Function<object>)function;
+                
+                Function<string> function = this.functionmanager.SearchFunction(fctname)[0];
+                //Function<object> testfct = (Function<object>)function; // error cast -  System.InvalidCastException 
 
-                string ans = testfct.Evaluate(args).ToString();
-                ShowBox.Text = ans;
-                */
+                string ans = function.Evaluate(args).ToString();
+                Console.WriteLine(ans);
+                //string ans = testfct.Evaluate(args).ToString();
+                string cal = string.Format("{0}{1}>{2}{3}{4}", InputBox.Text, System.Environment.NewLine, ans, System.Environment.NewLine, System.Environment.NewLine);
+                this.Calculs.Add(cal);
+                
             }
         }
         // 
