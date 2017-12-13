@@ -1,0 +1,7 @@
+C:\Users\Arnaud\Source\Repos\Calculator\FunctionFramework\obj\Debug\FunctionFramework.csprojResolveAssemblyReference.cache
+C:\Users\Arnaud\Source\Repos\Calculator\FunctionFramework\obj\Debug\FunctionFramework.csproj.CoreCompileInputs.cache
+C:\Users\Arnaud\Source\Repos\Calculator\FunctionFramework\bin\Debug\FunctionFramework.dll
+C:\Users\Arnaud\Source\Repos\Calculator\FunctionFramework\bin\Debug\FunctionFramework.pdb
+C:\Users\Arnaud\Source\Repos\Calculator\FunctionFramework\bin\Debug\SuperComputer.dll
+C:\Users\Arnaud\Source\Repos\Calculator\FunctionFramework\obj\Debug\FunctionFramework.dll
+C:\Users\Arnaud\Source\Repos\Calculator\FunctionFramework\obj\Debug\FunctionFramework.pdb

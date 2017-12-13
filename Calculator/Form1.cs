@@ -14,8 +14,11 @@ namespace Calculator
 {
     public partial class Form1 : Form
     {
+        FunctionManager functionmanager;
+
         public Form1()
         {
+            this.functionmanager = new FunctionManager();
             InitializeComponent();
         }
 
