@@ -43,7 +43,7 @@ namespace FunctionFramework
             {
                 double a = double.Parse(args[0]);
                 double b = double.Parse(args[1]);
-                if ( a > 0 & b > 0)
+                if ( a >= 0 & b >= 0)
                 {
                     return Math.Sqrt(Math.Pow(a,2) + Math.Pow(b,2));
                 }

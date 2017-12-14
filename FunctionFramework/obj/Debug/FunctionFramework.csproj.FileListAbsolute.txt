@@ -8,7 +8,6 @@ C:\Users\Arnaud\Source\Repos\Calculator\FunctionFramework\obj\Debug\FunctionFram
 C:\Users\maxime\source\repos\Calculator\FunctionFramework\bin\Debug\FunctionFramework.dll
 C:\Users\maxime\source\repos\Calculator\FunctionFramework\bin\Debug\FunctionFramework.pdb
 C:\Users\maxime\source\repos\Calculator\FunctionFramework\bin\Debug\SuperComputer.dll
-C:\Users\maxime\source\repos\Calculator\FunctionFramework\obj\Debug\FunctionFramework.csprojResolveAssemblyReference.cache
 C:\Users\maxime\source\repos\Calculator\FunctionFramework\obj\Debug\FunctionFramework.csproj.CoreCompileInputs.cache
 C:\Users\maxime\source\repos\Calculator\FunctionFramework\obj\Debug\FunctionFramework.dll
 C:\Users\maxime\source\repos\Calculator\FunctionFramework\obj\Debug\FunctionFramework.pdb
