@@ -138,30 +138,33 @@ namespace Calculator
 
             if (m.Success)
             {
+                // if we find an another function, we restart the process of Analyse (here is the recursivity)
                 args0.Add(Analyse(s));
-                string fctname = m.Groups["fct"].Value;
-                string[] args = m.Groups["args"].Value.Split(new char[] { ';' }, 2);
             }
             else
             {
+                // we split the string with the first character ;
                 string[] args = s.Split(new char[] { ';' }, 2);
                 if (args.Length == 2)
                     foreach (string arg in args)
                     {
+                        // we ask to look if we could cut the two parts received
                         args0.AddRange(Cut(arg, rg));
                     }
                 else
                 {
-                    Console.WriteLine(args[0]);
+                    // if it was just an argument, we return it so it could be added to the list
                     args0.Add(args[0]);
                 }
             }
 
+            // if it was just an argument, we return it so it could be added to the list
             return args0;
         }
 
         private string Analyse(string s)
         {
+            // create the regex with the list of function in the dll loaded
             List<string> nfct = new List<String>();
             foreach (IFunction fct in this.functionmanager.FunctionList)
             {
@@ -175,22 +178,23 @@ namespace Calculator
 
             Match m = rg.Match(s);
 
+            // if there is a match, we seperate the fct and the args
             if (m.Success)
             {
                 string fctname = m.Groups["fct"].Value;
-                Console.WriteLine(fctname);
-                // we compute here
-                string[] args = this.Cut(m.Groups["args"].Value, rg).ToArray();
-                // fct.compute(args)
-                
-                Function<string> function = this.functionmanager.SearchFunction(fctname)[0];
-                //Function<object> testfct = (Function<object>)function; // error cast -  System.InvalidCastException 
 
+                // we cut the args
+                string[] args = this.Cut(m.Groups["args"].Value, rg).ToArray();
+                
+                // we find the function with his name
+                Function<string> function = this.functionmanager.SearchFunction(fctname)[0];
+
+                // we compute and we add it to the list
                 string ans = function.Evaluate(args).ToString();
-                Console.WriteLine(ans);
-                //string ans = testfct.Evaluate(args).ToString();
-                string cal = string.Format("{0}{1}>{2}{3}{4}", InputBox.Text, System.Environment.NewLine, ans, System.Environment.NewLine, System.Environment.NewLine);
+                string cal = string.Format("{0}{1}>{2}{3}{4}", s, System.Environment.NewLine, ans, System.Environment.NewLine, System.Environment.NewLine);
                 this.Calculs.Add(cal);
+
+                // there are returns for the recursivity of the function
                 return ans;
             }
             return "";
