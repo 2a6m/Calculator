@@ -11,19 +11,24 @@ namespace FunctionFramework
     class FactorialTests
     {
         [Test()]
-        public void TestEvaluate()
+        public void TestFEvaluate()
         {
             Factorial Fact = new Factorial();
-
+            
             string[] arr1 = new string[] { "2" };
             string[] arr2 = new string[] { "-1" };
             string[] arr3 = new string[] { "0" };
             string[] arr4 = new string[] { "4" };
+            string[] arr5 = new string[] { "a" };
+            string[] arr6 = new string[] { "2,5" };
+            
 
             Assert.AreEqual(2, Fact.Evaluate(arr1));
-            Assert.AreEqual(0, Fact.Evaluate(arr2));
-            Assert.AreEqual(0, Fact.Evaluate(arr3));
+            Assert.AreEqual(-1, Fact.Evaluate(arr2));
+            Assert.AreEqual(1, Fact.Evaluate(arr3));
             Assert.AreEqual(24, Fact.Evaluate(arr4));
+            //Assert.AreEqual(-1, Fact.Evaluate(arr5));
+            //Assert.AreEqual(-1, Fact.Evaluate(arr6));
         }
     }
 }

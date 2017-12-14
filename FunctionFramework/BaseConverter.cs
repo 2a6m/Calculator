@@ -41,8 +41,15 @@ namespace FunctionFramework
             int[] param = Parser(args);
             try
             {
-                int ans = int.Parse(convert(param[0], param[1]));
-                return ans;
+                if (param[0] >= 0 & param[1] > 0)
+                {
+                    int ans = int.Parse(convert(param[0], param[1]));
+                    return ans;
+                }
+                else
+                {
+                    return -1;
+                }
             }
             catch
             {

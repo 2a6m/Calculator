@@ -7,13 +7,13 @@ using SuperComputer;
 
 namespace FunctionFramework
 {
-    class Factorial : Function<int>
+    class Pythagore : Function<double>
     {
         public string HelpMessage
         {
             get
             {
-                return "compute the factorial of x";
+                return "Compute the lenght of the hypothenuse when it receive the lenght of the 2 others sides of the triangle.";
             }
         }
 
@@ -21,7 +21,7 @@ namespace FunctionFramework
         {
             get
             {
-                return "Fact";
+                return "Pyth";
             }
         }
 
@@ -29,21 +29,23 @@ namespace FunctionFramework
         {
             get
             {
-                string[] param = new string[1];
-                param.SetValue("x", 0);
+                string[] param = new string[2];
+                param.SetValue("a", 0);
+                param.SetValue("b", 1);
+
                 return param;
             }
         }
 
-        public int Evaluate(string[] args)
+        public double Evaluate(string[] args)
         {
             try
             {
-                int x = int.Parse(args[0]);
-                if (x >= 0)
+                double a = double.Parse(args[0]);
+                double b = double.Parse(args[1]);
+                if ( a > 0 & b > 0)
                 {
-                    int ans = Fact(x);
-                    return ans;
+                    return Math.Sqrt(Math.Pow(a,2) + Math.Pow(b,2));
                 }
                 else
                 {
@@ -53,18 +55,6 @@ namespace FunctionFramework
             catch
             {
                 throw new EvaluationException("Couldn't substract the specified int");
-            }
-        }
-
-        private int Fact(int nbr)
-        {
-            if (nbr == 0)
-            {
-                return 1;
-            }
-            else
-            {
-                return nbr * Fact(nbr - 1);
             }
         }
     }
