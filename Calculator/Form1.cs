@@ -52,7 +52,8 @@ namespace Calculator
         private void HelpButton_Click(object sender, EventArgs e)
         {
             // method to write HELP message
-            string txtHelp = "HELP";
+            Function<string> fct = functionmanager.SearchFunction(FunctionBox.Text)[0];
+            string txtHelp = fct.HelpMessage;
             MessageBox.Show(txtHelp, "Help", MessageBoxButtons.OK);
         }
 
