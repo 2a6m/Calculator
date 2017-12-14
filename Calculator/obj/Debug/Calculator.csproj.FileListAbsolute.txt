@@ -19,3 +19,4 @@ C:\Users\Arnaud\Source\Repos\Calculator\Calculator\obj\Debug\Calculator.csproj.G
 C:\Users\Arnaud\Source\Repos\Calculator\Calculator\obj\Debug\Calculator.csproj.CoreCompileInputs.cache
 C:\Users\Arnaud\Source\Repos\Calculator\Calculator\obj\Debug\Calculator.exe
 C:\Users\Arnaud\Source\Repos\Calculator\Calculator\obj\Debug\Calculator.pdb
+C:\Users\maxime\source\repos\Calculator\Calculator\bin\Debug\SuperComputer.dll
