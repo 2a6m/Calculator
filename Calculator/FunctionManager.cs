@@ -23,8 +23,8 @@ namespace Calculator
         public FunctionManager()
         {
             this.FunctionList = new List<IFunction>();
-            string pathtest = Directory.GetCurrentDirectory() + "/FunctionFramework.dll";
-            Console.WriteLine(pathtest);
+            string pathtest = Directory.GetCurrentDirectory() + @"\FunctionFramework.dll";
+            Console.WriteLine("Origin path=" + pathtest);
             this.AddPath(pathtest);
             foreach(string path in this.pathList)
             {
@@ -66,10 +66,26 @@ namespace Calculator
         }
 
 
-    // Other Methods
+        // Evaluate
+
+        public string Evaluate(string name, string[] args)
+        {
+            IFunction fct = this.SearchFunction(name)[0];
+            //[TODO]: What should it do if searchfunction returns a list longer than 1 or emty?
+            MethodInfo eval = fct.GetType().GetMethod("Execute", new Type[] { });
+            string result = (eval.Invoke(fct, args)).ToString();
+            return result;
+        }
+
+    // DLL Manager
 
         public void LoadDLL(string path)
         {
+            /*
+            [TODO]: if AddPath fails because the path already exists,
+            LoadDLL should not execute LoadFunctions(path)
+            */
+
             this.AddPath(path);
             this.LoadFunctions(path);
         }
@@ -81,11 +97,37 @@ namespace Calculator
             Type[] types = dll.GetExportedTypes();
             foreach (Type type in types)
             {
-                Function<string> fct = (Function<string>)Activator.CreateInstance(type);
+                IFunction fct = (IFunction)Activator.CreateInstance(type);
                 string name = (string)type.InvokeMember("get_Name", BindingFlags.InvokeMethod, null, fct, null);
-                Console.WriteLine("fct = " + fct.ToString());
-                this.AddFunction(fct);                
+                Console.WriteLine("fct " + name + " est de type = " + fct.GetType());
+                this.AddFunction(fct);
+
+                /* FIRST ATTEMPT to cast 'fct' into its original type
                 
+                [ISSUE]: 't' is a variable but used as a type
+                              
+                MethodInfo methodinfo = type.GetMethod("Evaluate");
+                Type returntype = methodinfo.ReturnType;
+                dynamic t;
+                t = (dynamic)returntype;
+                Function<t> fct = (Function<t>)Activator.CreateInstance(type);
+
+                Console.WriteLine(fct.Name + " is returning " + returntype);
+                */
+
+
+                /* SECOND ATTEMPT
+                
+                [SOURCE]: stackoverflow.com/questions/9140873/how-to-use-activator-to-create-an-instance-of-a-generic-type-and-casting-it-back
+                [ISSUE]: One must know the object that implements Function<T>...
+
+                Type classType = typeof(Function<>);
+                Type[] typeParams = new Type[] { type };
+                Type constructedType = classType.MakeGenericType(typeParams);
+                var fct = (object) Activator.CreateInstance(constructedType, new object[] { });
+                var method = constructedType.GetMethod("Evaluate");
+                var res = method.Invoke(fct, new object[] { } );
+                */
             }
         }
 

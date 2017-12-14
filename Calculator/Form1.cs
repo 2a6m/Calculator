@@ -43,7 +43,7 @@ namespace Calculator
 
         private void FunctionButton_Click(object sender, EventArgs e)
         {
-            // apply the choosen function
+            
         }
 
         private void HelpButton_Click(object sender, EventArgs e)
