@@ -10,6 +10,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SuperComputer;
+using System.Reflection;
 
 namespace Calculator
 {
@@ -193,7 +194,7 @@ namespace Calculator
                 IFunction function = this.functionmanager.SearchFunction(fctname)[0];
 
                 // we compute and we add it to the list
-                //string ans = function.Evaluate(args).ToString();
+                //string ans = function.Evaluate(args).ToString(); // ERROR TO CORRECT
                 string cal = string.Format("{0}{1}>{2}{3}{4}", s, System.Environment.NewLine, "ans", System.Environment.NewLine, System.Environment.NewLine);
                 this.Calculs.Add(cal);
 
