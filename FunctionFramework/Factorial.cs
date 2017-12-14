@@ -40,8 +40,15 @@ namespace FunctionFramework
             try
             {
                 int x = int.Parse(args[0]);
-                int ans = Fact(x);
-                return ans;
+                if (x > 0)
+                {
+                    int ans = Fact(x);
+                    return ans;
+                }
+                else
+                {
+                    return 0;
+                }
             }
 
             catch
