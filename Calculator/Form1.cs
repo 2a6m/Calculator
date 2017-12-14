@@ -138,20 +138,9 @@ namespace Calculator
 
             if (m.Success)
             {
+                args0.Add(Analyse(s));
                 string fctname = m.Groups["fct"].Value;
                 string[] args = m.Groups["args"].Value.Split(new char[] { ';' }, 2);
-                Console.WriteLine(fctname);
-                if (args.Length == 2)
-                    foreach (string arg in args)
-                    {
-                        args0.AddRange(Cut(arg, rg));
-                    }
-                else
-                {
-                    args0.Add(args[0]);
-                    Console.WriteLine(args[0]);
-                }
-
             }
             else
             {
@@ -171,7 +160,7 @@ namespace Calculator
             return args0;
         }
 
-        private void Analyse(string s)
+        private string Analyse(string s)
         {
             List<string> nfct = new List<String>();
             foreach (IFunction fct in this.functionmanager.FunctionList)
@@ -202,8 +191,9 @@ namespace Calculator
                 //string ans = testfct.Evaluate(args).ToString();
                 string cal = string.Format("{0}{1}>{2}{3}{4}", InputBox.Text, System.Environment.NewLine, ans, System.Environment.NewLine, System.Environment.NewLine);
                 this.Calculs.Add(cal);
-                
+                return ans;
             }
+            return "";
         }
         // 
     }
