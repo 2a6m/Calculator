@@ -69,8 +69,10 @@ namespace Calculator
 
             if (LoadFileDialog.ShowDialog() == DialogResult.OK)
             {
-                Stream File = LoadFileDialog.OpenFile();
-                this.Functions.Add(File);
+                string Path = LoadFileDialog.FileName;
+                this.functionmanager.LoadDLL(Path);
+
+                this.UpdateFromFunctionManager();
             }
         }
 
