@@ -9,6 +9,11 @@ namespace FunctionFramework
 {
     public class Add : Function<string>
     {
+        public Add()
+        {
+
+        }
+
         public string HelpMessage
         {
             get
@@ -30,19 +35,25 @@ namespace FunctionFramework
             get
             {
                 string[] param = new string[2];
-                param.SetValue("double A", 0);
-                param.SetValue("double B", 1);
+                param.SetValue("a", 0);
+                param.SetValue("b", 1);
                 return param;
             }
         }
 
         public string Evaluate(string[] args)
         {
+            Console.WriteLine(args);
+            foreach(string arg in args)
+            {
+                Console.WriteLine(arg + " est de type" + arg.GetType());
+            }
             try
             {
                 double a = double.Parse(args[0]);
                 double b = double.Parse(args[1]);
-                return (a + b).ToString();
+                double sum = a + b;
+                return sum.ToString();
             }
 
             catch
