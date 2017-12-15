@@ -175,7 +175,17 @@ namespace Calculator
 
                 // we find the function with his name
                 IFunction function = this.functionmanager.SearchFunction(fctname)[0];
-                string ans = this.functionmanager.Evaluate(fctname, args);
+                string ans = "";
+                try
+                {
+                    ans = this.functionmanager.Evaluate(fctname, args);
+                }
+                catch(Exception e)
+                {
+                    ans = "ERROR";
+                    MessageBox.Show(e.Message, "Compute Error");
+
+                }
 
                 // put the compute in string
                 string cal = string.Format("{0}{1}>{2}{3}{4}", s, System.Environment.NewLine, ans, System.Environment.NewLine, System.Environment.NewLine);
