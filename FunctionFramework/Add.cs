@@ -43,11 +43,6 @@ namespace FunctionFramework
 
         public string Evaluate(string[] args)
         {
-            Console.WriteLine(args);
-            foreach(string arg in args)
-            {
-                Console.WriteLine(arg + " est de type" + arg.GetType());
-            }
             try
             {
                 double a = double.Parse(args[0]);
@@ -56,9 +51,9 @@ namespace FunctionFramework
                 return sum.ToString();
             }
 
-            catch
+            catch(Exception e)
             {
-                throw new EvaluationException("Couldn't add the specified double");
+                throw new EvaluationException("Couldn't add the specified parameters");
             }
         }
     }

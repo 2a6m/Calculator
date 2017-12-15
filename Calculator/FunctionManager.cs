@@ -73,10 +73,17 @@ namespace Calculator
             IFunction fct = this.SearchFunction(name)[0];
             //[TODO]: What should it do if searchfunction returns a list longer than 1 or emty?
             Type type = fct.GetType();
-            var result = type.InvokeMember("Evaluate", BindingFlags.InvokeMethod, null, fct, new object[] { args });
-            string ans = result.ToString();
-            Console.WriteLine(ans);
-            return ans;
+            try
+            {
+                var result = type.InvokeMember("Evaluate", BindingFlags.InvokeMethod, null, fct, new object[] { args });
+                string ans = result.ToString();
+                Console.WriteLine(ans);
+                return ans;
+            }
+            catch(Exception e)
+            {
+                throw new EvaluationException(e.Message);
+            }
         }
 
     // DLL Manager
