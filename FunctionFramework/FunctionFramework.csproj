@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Add.cs" />
+    <Compile Include="AddTest.cs" />
     <Compile Include="BaseConverter.cs" />
     <Compile Include="BaseConverterTests.cs" />
     <Compile Include="Complex2Polaire.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="Pythagore.cs" />
     <Compile Include="PythagoreTest.cs" />
     <Compile Include="Sub.cs" />
+    <Compile Include="SubTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
