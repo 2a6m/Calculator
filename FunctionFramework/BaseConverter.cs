@@ -13,7 +13,7 @@ namespace FunctionFramework
         {
             get
             {
-                return "Convertit un nombre 'a' en base 10 en un nombre en base 'b'.";
+                return "Convert a number 'a' in base 10 to a number in base 'b'.";
             }
         }
 
@@ -38,22 +38,27 @@ namespace FunctionFramework
 
         public int Evaluate(string[] args)
         {
-            int[] param = Parser(args);
+            //Transform the parameters to int and then converts them
             try
             {
-                if (param[0] >= 0 & param[1] > 0)
+                int[] param = Parser(args);
+                if (param[1] <= 1)
+                {
+                    throw new EvaluationException("'b' must be > 1");
+                }
+                else if (param[0] >= 0 & param[1] > 0)
                 {
                     int ans = int.Parse(convert(param[0], param[1]));
                     return ans;
                 }
                 else
                 {
-                    throw new EvaluationException("the param must be positifs");
+                    throw new EvaluationException("'a' must be bigger than 'b'");
                 }
             }
-            catch
+            catch (Exception e)
             {
-                throw new EvaluationException("Couldn't convert the number to the specified base");
+                throw new EvaluationException("Couldn't BaseConvert: " + e.Message);
             }
         }
 
@@ -74,6 +79,7 @@ namespace FunctionFramework
 
         private int[] Parser(string[] args)
         {
+            //Transforms the list of parameters into integers
             try
             {
                 int a = int.Parse(args[0]);
@@ -83,7 +89,7 @@ namespace FunctionFramework
             }
             catch
             {
-                throw new EvaluationException("Couldn't convert the arguments to integers");
+                throw new EvaluationException("Couldn't convert the arguments to integers. ");
             }
         }
     }
