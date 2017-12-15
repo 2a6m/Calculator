@@ -13,7 +13,7 @@ namespace FunctionFramework
         {
             get
             {
-                return ("Convert a number 'a' in base 'b' to a number in base 'c'. ")
+                return ("Convert a number 'a' in base 'b' to a number in base 'c'. ");
             }
         }
 
