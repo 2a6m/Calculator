@@ -138,45 +138,31 @@ namespace Calculator
         private List<string> Cut(string s, Regex rg)
         {
             List<string> args0 = new List<string>();
-            Match m = rg.Match(s);
+            string[] args = s.Split(new char[] { ';' });
 
-            if (m.Success)
-            {
-                // if we find an another function, we restart the process of Analyse (here is the recursivity)
-                args0.Add(Analyse(s));
-            }
-            else
-            {
-                // we split the string with the first character ;
-                string[] args = s.Split(new char[] { ';' }, 2);
-                if (args.Length == 2)
-                    foreach (string arg in args)
-                    {
-                        // we ask to look if we could cut the two parts received
-                        args0.AddRange(Cut(arg, rg));
-                    }
-                else
-                {
-                    // if it was just an argument, we return it so it could be added to the list
-                    args0.Add(args[0]);
-                }
-            }
-
-            // if it was just an argument, we return it so it could be added to the list
+            args0 = args.ToList();
             return args0;
         }
 
-        private string Analyse(string s)
+        private string CreateRegex(List<IFunction> functions)
         {
-            // create the regex with the list of function in the dll loaded
-            List<string> nfct = new List<String>();
+            // generate a string with the possibility of all the functions (for regex)
+
+            List<string> nfct = new List<string>();
             foreach (IFunction fct in this.functionmanager.FunctionList)
             {
                 nfct.Add(fct.Name);
             }
             string fcttxt = string.Join("|", nfct.ToArray());
-            string rgstr = string.Format(@"^(?<fct>({0}))\((?<args>.*)\)$", fcttxt);
-            Regex rg = new Regex(rgstr);
+            string str = string.Format(@"^(?<fct>({0}))\((?<args>.*)\)$", fcttxt);
+            return str;
+        }
+
+        private void Analyse(string s)
+        {
+            // create the regex with the list of function in the dll loaded
+            string rgString = this.CreateRegex(this.functionmanager.FunctionList);
+            Regex rg = new Regex(rgString);
             Match m = rg.Match(s);
 
             // if there is a match, we seperate the fct and the args
@@ -191,18 +177,12 @@ namespace Calculator
                 IFunction function = this.functionmanager.SearchFunction(fctname)[0];
                 string ans = this.functionmanager.Evaluate(fctname, args);
 
-
-                // we compute and we add it to the list
-                //string ans = function.Evaluate(args).ToString();
+                // put the compute in string
                 string cal = string.Format("{0}{1}>{2}{3}{4}", s, System.Environment.NewLine, ans, System.Environment.NewLine, System.Environment.NewLine);
 
-
+                // add it to the show list
                 this.Calculs.Add(cal);
-
-                // there are returns for the recursivity of the function
-                return ans;
             }
-            return "";
         }
         //
     }
