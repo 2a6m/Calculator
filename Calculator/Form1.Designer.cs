@@ -170,6 +170,7 @@
             // FunctionBox
             // 
             this.FunctionBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FunctionBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.FunctionBox.FormattingEnabled = true;
             this.FunctionBox.Location = new System.Drawing.Point(516, 613);
             this.FunctionBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
