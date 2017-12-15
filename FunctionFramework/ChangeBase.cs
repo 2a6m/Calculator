@@ -42,6 +42,7 @@ namespace FunctionFramework
             try
             {
                 int baseten = read(args);
+                Console.WriteLine("[Eval] baseten :" + baseten);
                 int c = int.Parse(args[2]);
                 string ans = translate(baseten, c);
                 return ans;
@@ -63,6 +64,7 @@ namespace FunctionFramework
             {
                 int len = args[1].Count();
                 int b = int.Parse(args[1]);
+                Console.WriteLine("len: " + len +"  b:"+ b);
                 string a = args[0];
                 a = fill(a, b);
                 List<int> listdig = digitalize(a, len);
@@ -132,11 +134,12 @@ namespace FunctionFramework
         {
             try
             {
+                Console.WriteLine("trans - b:" + b + " c: " + c);
                 if (c <= 1)
                 {
                     throw new EvaluationException("'c' must be ant integer > 1");
                 }
-                else if (b >= 0 & b > 0)
+                else if (b >= 0 & c > 1)
                 {
                     return convert(b, c);
                 }

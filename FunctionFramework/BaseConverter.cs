@@ -42,6 +42,7 @@ namespace FunctionFramework
             try
             {
                 int[] param = Parser(args);
+                Console.WriteLine("Eval - param: " + param);
                 if (param[1] <= 1)
                 {
                     throw new EvaluationException("'b' must be > 1");
