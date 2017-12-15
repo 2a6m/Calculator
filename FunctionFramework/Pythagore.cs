@@ -43,18 +43,12 @@ namespace FunctionFramework
             {
                 double a = double.Parse(args[0]);
                 double b = double.Parse(args[1]);
-                if ( a >= 0 & b >= 0)
-                {
-                    return Math.Sqrt(Math.Pow(a,2) + Math.Pow(b,2));
-                }
-                else
-                {
-                    return -1;
-                }
+
+                return Math.Sqrt(Math.Abs(Math.Pow(a,2)) + Math.Abs(Math.Pow(b,2)));
             }
             catch
             {
-                throw new EvaluationException("Couldn't substract the specified int");
+                throw new EvaluationException("Couldn't substract the specified double");
             }
         }
     }

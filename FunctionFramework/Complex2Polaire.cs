@@ -50,26 +50,21 @@ namespace FunctionFramework
                 arg = Math.Round(arg, 2);
                 azimut = Math.Round(azimut, 2);
 
-                if (arg == 0 & azimut == 0)
-                {
-                    return "complex not valid";
-                }
-
                 string ans = string.Format("arg: {0} - az: {1}π", arg, azimut);
-                Console.WriteLine(ans);
 
                 return ans;
             }
-
             catch
             {
-                throw new EvaluationException("Couldn't add the specified double");
+                throw new EvaluationException("the parameter R and Im couldnt be transform in double");
             }
         }
 
         private double CalculAngle(double x, double y)
         {
-            if (x > 0 & y >= 0)
+            // Compute the arctan with x and y: warning there is a lot of exception
+
+            if (x >= 0 & y >= 0)
             {
                 return Math.Atan2(y, x);
             }
@@ -91,7 +86,7 @@ namespace FunctionFramework
             }
             else
             {
-                return 0;
+                throw new EvaluationException("the method CalculateAngle couldnt calcute the angle with the arguments given");
             }
         }
     }

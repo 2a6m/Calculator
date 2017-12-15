@@ -47,7 +47,7 @@ namespace FunctionFramework
                 }
                 else
                 {
-                    return -1;
+                    throw new EvaluationException("the number must be positif");
                 }
             }
             catch
