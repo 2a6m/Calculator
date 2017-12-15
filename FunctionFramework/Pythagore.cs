@@ -7,7 +7,7 @@ using SuperComputer;
 
 namespace FunctionFramework
 {
-    class Pythagore : Function<double>
+    public class Pythagore : Function<double>
     {
         public string HelpMessage
         {

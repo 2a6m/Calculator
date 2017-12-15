@@ -7,7 +7,7 @@ using SuperComputer;
 
 namespace FunctionFramework
 {
-    class Factorial : Function<int>
+    public class Factorial : Function<int>
     {
         public string HelpMessage
         {
