@@ -49,12 +49,12 @@ namespace FunctionFramework
                 }
                 else
                 {
-                    return -1;
+                    throw new EvaluationException("the parameters must be >= 0");
                 }
             }
             catch
             {
-                throw new EvaluationException("Couldn't substract the specified int");
+                throw new EvaluationException("Couldn't substract the specified double");
             }
         }
     }
