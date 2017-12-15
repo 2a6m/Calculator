@@ -174,11 +174,8 @@ namespace Calculator
                 nfct.Add(fct.Name);
             }
             string fcttxt = string.Join("|", nfct.ToArray());
-
-
             string rgstr = string.Format(@"^(?<fct>({0}))\((?<args>.*)\)$", fcttxt);
             Regex rg = new Regex(rgstr);
-
             Match m = rg.Match(s);
 
             // if there is a match, we seperate the fct and the args
@@ -191,14 +188,16 @@ namespace Calculator
 
                 // we find the function with his name
                 IFunction function = this.functionmanager.SearchFunction(fctname)[0];
+                string ans = this.functionmanager.Evaluate(fctname, args);
+
 
                 // we compute and we add it to the list
                 //string ans = function.Evaluate(args).ToString();
-                string cal = string.Format("{0}{1}>{2}{3}{4}", s, System.Environment.NewLine, "ans", System.Environment.NewLine, System.Environment.NewLine);
+                string cal = string.Format("{0}{1}>{2}{3}{4}", s, System.Environment.NewLine, ans, System.Environment.NewLine, System.Environment.NewLine);
                 this.Calculs.Add(cal);
 
                 // there are returns for the recursivity of the function
-                return "ans";
+                return ans;
             }
             return "";
         }

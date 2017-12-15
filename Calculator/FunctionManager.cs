@@ -23,8 +23,9 @@ namespace Calculator
         public FunctionManager()
         {
             this.FunctionList = new List<IFunction>();
-            string pathtest = Directory.GetCurrentDirectory() + @"\FunctionFramework.dll";
-            Console.WriteLine("Origin path=" + pathtest);
+            //string pathtest = Directory.GetCurrentDirectory() + @"\FunctionFramework.dll";
+            string pathtest = @"C:\Users\Arnaud\source\repos\Calculator\FunctionFramework\bin\Debug\FunctionFramework.dll";
+            Console.WriteLine("Origin path = " + pathtest);
             this.AddPath(pathtest);
             foreach(string path in this.pathList)
             {
@@ -36,8 +37,7 @@ namespace Calculator
                 {
                     Console.WriteLine(e);
                 }
-            }
-            
+            }   
         }
 
 
@@ -72,9 +72,11 @@ namespace Calculator
         {
             IFunction fct = this.SearchFunction(name)[0];
             //[TODO]: What should it do if searchfunction returns a list longer than 1 or emty?
-            MethodInfo eval = fct.GetType().GetMethod("Execute", new Type[] { });
-            string result = (eval.Invoke(fct, args)).ToString();
-            return result;
+            Type type = fct.GetType();
+            var result = type.InvokeMember("Evaluate", BindingFlags.InvokeMethod, null, fct, new object[] { args });
+            string ans = result.ToString();
+            Console.WriteLine(ans);
+            return ans;
         }
 
     // DLL Manager
@@ -98,20 +100,21 @@ namespace Calculator
             foreach (Type type in types)
             {
                 IFunction fct = (IFunction)Activator.CreateInstance(type);
-                string name = (string)type.InvokeMember("get_Name", BindingFlags.InvokeMethod, null, fct, null);
-                Console.WriteLine("fct " + name + " est de type = " + fct.GetType());
+
                 this.AddFunction(fct);
 
+                //[TODO] Create an instance and cast it immediately into Function<T>
+                
                 /* FIRST ATTEMPT to cast 'fct' into its original type
                 
-                [ISSUE]: 't' is a variable but used as a type
+                //[ISSUE]: 't' is a variable but used as a type
                               
                 MethodInfo methodinfo = type.GetMethod("Evaluate");
-                Type returntype = methodinfo.ReturnType;
-                dynamic t;
-                t = (dynamic)returntype;
-                Function<t> fct = (Function<t>)Activator.CreateInstance(type);
-
+                var returntype = methodinfo.ReturnType;
+                //dynamic t;
+                //t = (dynamic)returntype;
+                Function<returntype> fct = (Function<returntype>)Activator.CreateInstance(type);
+                
                 Console.WriteLine(fct.Name + " is returning " + returntype);
                 */
 
