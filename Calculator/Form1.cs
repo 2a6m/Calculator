@@ -10,6 +10,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SuperComputer;
+using System.Reflection;
 
 namespace Calculator
 {
@@ -194,6 +195,8 @@ namespace Calculator
                 // we compute and we add it to the list
                 //string ans = function.Evaluate(args).ToString();
                 string cal = string.Format("{0}{1}>{2}{3}{4}", s, System.Environment.NewLine, ans, System.Environment.NewLine, System.Environment.NewLine);
+
+
                 this.Calculs.Add(cal);
 
                 // there are returns for the recursivity of the function
