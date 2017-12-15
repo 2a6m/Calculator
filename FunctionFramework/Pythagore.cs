@@ -43,14 +43,8 @@ namespace FunctionFramework
             {
                 double a = double.Parse(args[0]);
                 double b = double.Parse(args[1]);
-                if ( a >= 0 & b >= 0)
-                {
-                    return Math.Sqrt(Math.Pow(a,2) + Math.Pow(b,2));
-                }
-                else
-                {
-                    throw new EvaluationException("the parameters must be >= 0");
-                }
+
+                return Math.Sqrt(Math.Abs(Math.Pow(a,2)) + Math.Abs(Math.Pow(b,2)));
             }
             catch
             {

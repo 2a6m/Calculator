@@ -48,7 +48,7 @@ namespace FunctionFramework
                 }
                 else
                 {
-                    return -1;
+                    throw new EvaluationException("the param must be positifs");
                 }
             }
             catch

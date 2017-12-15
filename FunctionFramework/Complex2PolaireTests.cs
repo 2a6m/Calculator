@@ -40,11 +40,8 @@ namespace FunctionFramework
             string[] err1 = new string[] { "a", "b" };
             string[] err2 = new string[] { "a" };
 
-            SuperComputer.EvaluationException ens1 = new SuperComputer.EvaluationException("the method CalculateAngle couldnt calcute the angle with the arguments given");
-            SuperComputer.EvaluationException ens2 = new SuperComputer.EvaluationException("the method CalculateAngle couldnt calcute the angle with the arguments given");
-
-            Assert.AreEqual(ens1, C2P.Evaluate(err1));
-            Assert.AreEqual(ens2, C2P.Evaluate(err2));
+            Assert.That(delegate { C2P.Evaluate(err1); }, Throws.TypeOf<SuperComputer.EvaluationException>());
+            Assert.That(delegate { C2P.Evaluate(err2); }, Throws.TypeOf<SuperComputer.EvaluationException>());
         }
     }
 }
