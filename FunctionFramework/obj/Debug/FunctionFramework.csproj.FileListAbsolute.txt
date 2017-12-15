@@ -13,3 +13,4 @@ C:\Users\maxime\source\repos\Calculator\FunctionFramework\obj\Debug\FunctionFram
 C:\Users\maxime\source\repos\Calculator\FunctionFramework\obj\Debug\FunctionFramework.pdb
 C:\Users\maxime\source\repos\Calculator\FunctionFramework\bin\Debug\nunit.framework.dll
 C:\Users\maxime\source\repos\Calculator\FunctionFramework\bin\Debug\nunit.framework.xml
+C:\Users\maxime\source\repos\Calculator\FunctionFramework\obj\Debug\FunctionFramework.csprojResolveAssemblyReference.cache
